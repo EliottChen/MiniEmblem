@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://dhsm2frnoc465"]
 
-[ext_resource type="Script" uid="uid://sjgeicd3wfn2" path="res://Scripts/view/VisualCursor.gd" id="1_qybsh"]
+[ext_resource type="Script" uid="uid://h4w40mwcfdm1" path="res://Scripts/Core/Cursor.gd" id="1_qybsh"]
 
 [node name="VisualCursor" type="Node2D" unique_id=468030784]
 z_index = 100
 script = ExtResource("1_qybsh")
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=302158873]
+position = Vector2(64, 64)
 polygon = PackedVector2Array(-53, 55, 64, 64, -64, 64, -64, -64)
 
 [node name="Polygon2D2" type="Polygon2D" parent="." unique_id=1048462369]
+position = Vector2(64, 64)
 polygon = PackedVector2Array(64, -64, 64, 64, 58, -49, -64, -64)
