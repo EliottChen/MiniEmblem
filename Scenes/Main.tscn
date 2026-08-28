@@ -12,12 +12,12 @@ shader_parameter/grid_origin = Vector2(0, 0)
 shader_parameter/line_color = Color(1, 1, 1, 0.6)
 shader_parameter/line_thickness = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kln2b"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rgh2o"]
 shader = ExtResource("1_v1gob")
 shader_parameter/cell_size = Vector2(128, 128)
 shader_parameter/grid_origin = Vector2(0, 0)
 shader_parameter/line_color = Color(0, 0, 0, 1)
-shader_parameter/line_thickness = 2.210000081225
+shader_parameter/line_thickness = 2.8850001132875
 
 [node name="Main" type="Node2D" unique_id=2035498865]
 material = SubResource("ShaderMaterial_pbw6q")
@@ -28,8 +28,12 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAA
 tile_set = ExtResource("2_rgh2o")
 
 [node name="RenderingLayer" type="TileMapLayer" parent="." unique_id=807942830]
-material = SubResource("ShaderMaterial_kln2b")
 tile_map_data = PackedByteArray("AAABAAAAAAAGAAEAAAACAAAAAAAGAAEAAAACAAEAAAAIAAAAAAADAAEAAAAGAAIAAAADAAAAAAAGAAEAAAAEAAAAAAAGAAEAAAAEAAEAAAAGAAIAAAABAAEAAAAGAAEAAAAAAAEAAAAGAAEAAAABAAIAAAAGAAEAAAACAAIAAAAHAAEAAAAAAAIAAAAGAAEAAAAAAAAAAAAGAAEAAAAAAAMAAAAGAAEAAAABAAMAAAAGAAEAAAACAAMAAAAHAAEAAAACAAQAAAAIAAEAAAABAAQAAAAGAAEAAAAAAAQAAAAGAAEAAAAFAAQAAAAJAAEAAAAGAAQAAAAGAAEAAAAHAAQAAAAGAAEAAAAHAAMAAAAGAAEAAAAIAAMAAAAGAAEAAAAIAAIAAAAGAAEAAAAIAAEAAAAGAAEAAAAIAAAAAAAGAAEAAAAHAAAAAAAGAAEAAAAGAAAAAAAGAAEAAAAFAAAAAAAGAAEAAAAFAAMAAAAFAAEAAAAFAAIAAAAFAAEAAAAGAAIAAAAGAAEAAAAGAAEAAAAGAAEAAAAFAAEAAAAJAAAAAAAHAAEAAAAGAAEAAAAGAAMAAAAGAAEAAAAHAAIAAAAGAAEAAAAIAAQAAAAGAAEAAAADAAQAAAAGAAAAAAAEAAQAAAAGAAAAAAA=")
 tile_set = ExtResource("1_r150o")
 
 [node name="VisualCursor" parent="." unique_id=468030784 instance=ExtResource("6_jw32o")]
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=2038783054]
+material = SubResource("ShaderMaterial_rgh2o")
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(0, 0, 1152, 0, 1152, 640, 0, 640)

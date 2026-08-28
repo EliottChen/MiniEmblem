@@ -22,6 +22,6 @@ void fragment() {
 	if (on_line) {
 		COLOR = mix(tex_color, line_color, line_color.a);
 	} else {
-		COLOR = tex_color;
+		COLOR = vec4(0,0,0,0);
 	}
 }
