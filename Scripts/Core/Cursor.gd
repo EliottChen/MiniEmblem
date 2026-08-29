@@ -3,29 +3,26 @@ class_name Cursor;
 
 var movable : MovableOnGrid = MovableOnGrid.new()
 
-var gridPosition: Vector2i:
-	get:
-		return movable.gridPosition
 
 func _init() -> void:
-	movable.onUpdatePos.connect(OnRendererUpdate)
+	movable.onUpdatePos.connect(_on_movable_moved)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	movable.update_renderer_pos()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if(Input.is_action_just_released("down")):
-		movable.move(gridPosition + Vector2i(0, 1))
+		movable.move(movable.pos + Vector2i(0, 1))
 	if(Input.is_action_just_released("up")):
-		movable.move(gridPosition + Vector2i(0, -1))
+		movable.move(movable.pos + Vector2i(0, -1))
 	if(Input.is_action_just_released("left")):
-		movable.move(gridPosition + Vector2i(-1, 0))
+		movable.move(movable.pos + Vector2i(-1, 0))
 	if(Input.is_action_just_released("right")):
-		movable.move(gridPosition + Vector2i(1, 0))
+		movable.move(movable.pos + Vector2i(1, 0))
 	pass
 
-func OnRendererUpdate(pos : Vector2i) -> void:
-	global_position = Vector2(pos) * movable.cellSize
+func _on_movable_moved(pos : Vector2i) -> void:
+	global_position = Vector2(pos)
 	pass

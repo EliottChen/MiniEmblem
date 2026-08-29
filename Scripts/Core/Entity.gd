@@ -11,9 +11,5 @@ func _exit_tree() -> void:
 	instances.erase(self)
 
 func _check_coordinate(pos : Vector2i) -> bool:
-	for i in instances:
-		if(i.gridPosition == pos):
-			return false
-		else:
-			continue
-	return true
+	print("TODO : Implement checking conditions")
+	return false
