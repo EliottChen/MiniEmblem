@@ -7,16 +7,28 @@ static var cell_size : Vector2 :
 
 
 enum TileType{
+	none,
 	ground,
 	empty
 
 }
 
 ## Functions used to determine the tile type of each tiles converting string data to an enum
-func get_type(typeName : String) -> TileType:
+static func get_terrain_type(tile : TileData) -> TileType:
+	if not tile:
+		push_error("GridSettings: Tile data passed as parameter is null!")
+		return TileType.none
+	
+	var rawValue : Variant = tile.get_custom_data("TerrainType")
+	
+	var typeName : String = str(tile.get_custom_data("TerrainType")).to_lower()
+	
 	match typeName:
-		"ground", "Ground":
+		"ground":
+			print("returned ground")
 			return TileType.ground
-		"empty", "Empty":
+		"empty":
+			print("returned empty")
 			return TileType.empty
-	return TileType.ground
+	push_error("GridSettings: data exist but wasn't recognized")
+	return TileType.none

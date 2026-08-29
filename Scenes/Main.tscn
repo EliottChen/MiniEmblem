@@ -3,7 +3,8 @@
 [ext_resource type="TileSet" uid="uid://c06oxybk4bruu" path="res://Tilemap/PlainsBiome.tres" id="1_r150o"]
 [ext_resource type="Shader" uid="uid://dmwtariql34nt" path="res://Scripts/Shader/grid_overlay.gdshader" id="1_v1gob"]
 [ext_resource type="TileSet" uid="uid://dgbph0rwollpi" path="res://Tilemap/Collisions.tres" id="2_rgh2o"]
-[ext_resource type="PackedScene" uid="uid://dhsm2frnoc465" path="res://Scenes/visual_cursor.tscn" id="6_jw32o"]
+[ext_resource type="Script" uid="uid://du7odqu3lslyx" path="res://Scripts/Tools/GridBuilder.gd" id="3_pbw6q"]
+[ext_resource type="Script" uid="uid://da5qebvl3a43i" path="res://Scripts/Core/GridManager.gd" id="6_v1gob"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pbw6q"]
 shader = ExtResource("1_v1gob")
@@ -28,9 +29,10 @@ material = SubResource("ShaderMaterial_rgh2o")
 color = Color(1, 0, 0, 1)
 polygon = PackedVector2Array(0, 0, 1152, 0, 1152, 640, 0, 640)
 
-[node name="VisualCursor" parent="." unique_id=468030784 instance=ExtResource("6_jw32o")]
-
-[node name="Grids" type="Node2D" parent="." unique_id=1638145211]
+[node name="Grids" type="Node2D" parent="." unique_id=1638145211 node_paths=PackedStringArray("manager", "tilemapCollision")]
+script = ExtResource("3_pbw6q")
+manager = NodePath("../GridManager")
+tilemapCollision = NodePath("CollisionLayer")
 
 [node name="CollisionLayer" type="TileMapLayer" parent="Grids" unique_id=203531414]
 z_index = -10
@@ -40,3 +42,7 @@ tile_set = ExtResource("2_rgh2o")
 [node name="RenderingLayer" type="TileMapLayer" parent="Grids" unique_id=807942830]
 tile_map_data = PackedByteArray("AAABAAAAAAAGAAEAAAACAAAAAAAGAAEAAAACAAEAAAAIAAAAAAADAAEAAAAGAAIAAAADAAAAAAAGAAEAAAAEAAAAAAAGAAEAAAAEAAEAAAAGAAIAAAABAAEAAAAGAAEAAAAAAAEAAAAGAAEAAAABAAIAAAAGAAEAAAACAAIAAAAHAAEAAAAAAAIAAAAGAAEAAAAAAAAAAAAGAAEAAAAAAAMAAAAGAAEAAAABAAMAAAAGAAEAAAACAAMAAAAHAAEAAAACAAQAAAAIAAEAAAABAAQAAAAGAAEAAAAAAAQAAAAGAAEAAAAFAAQAAAAJAAEAAAAGAAQAAAAGAAEAAAAHAAQAAAAGAAEAAAAHAAMAAAAGAAEAAAAIAAMAAAAGAAEAAAAIAAIAAAAGAAEAAAAIAAEAAAAGAAEAAAAIAAAAAAAGAAEAAAAHAAAAAAAGAAEAAAAGAAAAAAAGAAEAAAAFAAAAAAAGAAEAAAAFAAMAAAAFAAEAAAAFAAIAAAAFAAEAAAAGAAIAAAAGAAEAAAAGAAEAAAAGAAEAAAAFAAEAAAAJAAAAAAAHAAEAAAAGAAEAAAAGAAMAAAAGAAEAAAAHAAIAAAAGAAEAAAAIAAQAAAAGAAEAAAADAAQAAAAGAAAAAAAEAAQAAAAGAAAAAAA=")
 tile_set = ExtResource("1_r150o")
+
+[node name="GridManager" type="Node" parent="." unique_id=1567863413]
+script = ExtResource("6_v1gob")
+metadata/_custom_type_script = "uid://da5qebvl3a43i"

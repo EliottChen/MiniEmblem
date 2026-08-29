@@ -10,6 +10,6 @@ func _init() -> void:
 func _exit_tree() -> void:
 	instances.erase(self)
 
-func _check_coordinate(pos : Vector2i) -> bool:
+func _check_coordinate(_pos : Vector2i) -> bool:
 	print("TODO : Implement checking conditions")
 	return false
